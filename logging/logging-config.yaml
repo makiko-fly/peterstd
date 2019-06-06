@@ -1,0 +1,29 @@
+logging:
+  enable: true
+  level: 5
+  formatter: "text"
+  hooks:
+    - name: "FileHook"
+      enable: true
+      level: 5
+      formatter: "json"
+      filepath: "H://logtest.log"
+    - name: "DailyRotatingHook"
+      enable: false
+      level: 5
+      formatter: "json"
+      rotate_dir: "H://"
+      filename: "log_test"
+      max_backup: 7
+    - name: "TCPHook"
+      enable: false
+      level: 5
+      formatter: "json"
+      tcp_address: "192.168.127.3:9601"
+    - name: "NSQHook"
+      enable: true
+      level: 5
+      formatter: "json"
+      nsqd_address: "192.168.127.3:4150"
+      topic: "nsq-hook-log"
+
